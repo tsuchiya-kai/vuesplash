@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// PHPのアロー関数記法の場合
-// Route::get('/{any?}', fn() => view('index'))->where('any', '.+');
-
+//VueRouterで制御するための記述
 Route::get('/{any?}', function () {
     return view('index');
 })->where('any', '.+');
+
+//認証
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// ログイン
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+// ログアウト
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
