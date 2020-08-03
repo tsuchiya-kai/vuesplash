@@ -105,12 +105,18 @@ export default {
     },
     //ログイン機能
     async login() {
-      console.log("ログイン前");
       // authストアのloginアクションを呼び出す
       await this.$store.dispatch("auth/login", this.loginForm);
-      console.log("ログイン後");
-      // トップページに移動する
-      this.$router.push("/");
+
+      if (this.apiStatus) {
+        // トップページに移動する
+        this.$router.push("/");
+      }
+    }
+  },
+  computed: {
+    apiStatus() {
+      return this.$store.state.auth.apiStatus;
     }
   }
 };
