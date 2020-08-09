@@ -1,4 +1,4 @@
-import { OK, UNPROCESSABLE_ENTITY } from "../util";
+import { OK, CREATED, UNPROCESSABLE_ENTITY } from "../util";
 
 //storeはモジュールに分けられる
 //index.jsでVuexに登録
@@ -28,7 +28,7 @@ const mutations = {
   setLoginErrorMessages(state, messages) {
     state.loginErrorMessages = messages;
   },
-  registerErrorMessages(state, messages) {
+  setRegisterErrorMessages(state, messages) {
     state.registerErrorMessages = messages;
   }
 };

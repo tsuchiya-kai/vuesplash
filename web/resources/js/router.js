@@ -4,6 +4,7 @@ import store from "./store";
 import PhotoList from "./pages/PhotoList.vue";
 import Login from "./pages/Login.vue";
 import SystemError from "./pages/errors/System.vue";
+import PhotoDetail from "./pages/PhotoDetail.vue";
 
 // VueRouterプラグインの使用を宣言
 Vue.use(VueRouter);
@@ -28,6 +29,11 @@ const routes = [
   {
     path: "/500",
     component: SystemError
+  },
+  {
+    path: "/photos/:id",
+    component: PhotoDetail,
+    props: true
   }
 ];
 

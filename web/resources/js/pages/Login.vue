@@ -115,7 +115,7 @@ export default {
     };
   },
   created() {
-    clearError();
+    this.clearError();
   },
   methods: {
     //新規会員登録
