@@ -6,26 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePhotosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
+            $table->unsignedInteger('user_id');
+            $table->string('filename');
             $table->timestamps();
-        });
-    }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('photos');
+            $table->foreign('user_id')->references('id')->on('users');
+        });
     }
 }
