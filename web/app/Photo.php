@@ -11,6 +11,10 @@ class Photo extends Model
     /** プライマリキーの型 */
     protected $keyType = 'string';
 
+    /** 写真一覧のページネーション（1ページの表示数） **/
+    // これを記述するとエラーになる
+    // protected $perPage = 3;
+
     /** JSONに含める属性 */
     protected $visible = [
         'id', 'owner', 'url',
