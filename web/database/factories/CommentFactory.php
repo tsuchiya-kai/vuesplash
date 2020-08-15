@@ -1,23 +1,12 @@
 <?php
 
-namespace App;
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use Illuminate\Database\Eloquent\Model;
+use Faker\Generator as Faker;
 
-class Comment extends Model
-{
-    /** JSONに含める属性 */
-    protected $visible = [
-        'author', 'content',
+$factory->define(App\Comment::class, function (Faker $faker) {
+    return [
+        'content' => substr($faker->text, 0, 500),
+        'user_id' => fn() => factory(App\User::class)->create()->id,
     ];
-
-    /**
-     * リレーションシップ - usersテーブル.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function author()
-    {
-        return $this->belongsTo('App\User', 'user_id', 'id', 'users');
-    }
-}
+});
