@@ -4,6 +4,7 @@ import store from "./store";
 import PhotoList from "./pages/PhotoList.vue";
 import Login from "./pages/Login.vue";
 import SystemError from "./pages/errors/System.vue";
+import NotFound from "./pages/errors/NotFound.vue";
 import PhotoDetail from "./pages/PhotoDetail.vue";
 
 // VueRouterプラグインの使用を宣言
@@ -39,6 +40,10 @@ const routes = [
     path: "/photos/:id",
     component: PhotoDetail,
     props: true
+  },
+  {
+    path: "*",
+    component: NotFound
   }
 ];
 
