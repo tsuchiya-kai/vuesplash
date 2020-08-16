@@ -1,21 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// PHPのアロー関数記法の場合
-// Route::get('/{any?}', fn() => view('index'))->where('any', '.+');
-
+//VueRouterで制御するための記述
 Route::get('/{any?}', function () {
     return view('index');
 })->where('any', '.+');
